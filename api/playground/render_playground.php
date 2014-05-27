@@ -4,6 +4,7 @@ function render_playground($venue)
 {
 ?>
 
+<title><?php echo $venue['Playground_name']." - ".$venue['Playground_locality'] ?></title>
 <meta name="description" content=<?php echo $venue['Playground_name']." ".$venue['Playground_locality']." ".$venue['Playground_rate'] ?> />
 
 	<div class="flat_box_body_div ">
