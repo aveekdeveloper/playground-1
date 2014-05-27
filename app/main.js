@@ -42,5 +42,5 @@ BookMeAGame.config(['$routeProvider','$locationProvider',
         redirectTo: '/'
       });
 	  
-	  $locationProvider.html5Mode(true).hashPrefix('!');
+	  $locationProvider.hashPrefix('!');
   }]);
