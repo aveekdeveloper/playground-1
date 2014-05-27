@@ -9,6 +9,8 @@ $app->response->headers->set('Content-Type', 'application/json');
 
 // GET route
 
+include_once('playground/index.php');
+
 $app->get('/',function(){
 	echo "Api home";
 });
