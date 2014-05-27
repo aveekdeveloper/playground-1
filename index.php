@@ -12,6 +12,7 @@
 				echo "Looking for playground with url " + $escaped_fragment_arr[1] ;
 				break;
 			default:
+				echo "Bot request" ;
 		 }
 	  }
 
