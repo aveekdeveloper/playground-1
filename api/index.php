@@ -33,23 +33,6 @@ $app->get('/search',function() use ($app){
 	echo json_encode($result);
 	});
 
-$app->get('/playground/:url' , function($url) use ($app){
-	$result = get_playground_by_url($url);
-	
-	if(empty($result))
-	{
-	$app->response()->status(400);
-	$result=array();
-	$result['message'] = 'Your search returned no results. Please modify your query';
-	}
-	
-	echo json_encode($result);
-	});
-
-$app->get('/hello/:name', function ($name) {
-    echo "Hello, $name";
-});
-
 // POST route
 $app->post(
     '/post',
