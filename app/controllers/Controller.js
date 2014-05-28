@@ -82,7 +82,12 @@ BookMeAGame.controller('SearchController', function ($scope , $routeParams, Sear
 BookMeAGame.controller('ReservationController', function ($scope , $routeParams , $location)
 {
 
-$scope.venue = [];
-
-$scope.venue.time_slots = {'9AM - 10PM' , '10AM - 11PM' ,'11AM - 12PM'};
+$scope.venue = {
+					"name": "Playmania bellandur",
+					"time_slots": [
+						"9AM-10PM",
+						"10AM-11PM",
+						"11AM-12PM"
+					]
+			}
 });

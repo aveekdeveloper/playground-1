@@ -1,19 +1,33 @@
-<table id="reservation_table"><colgroup span="1" id="reservation_time_colgroup"></colgroup><colgroup span="7" id="reservation_day_colgroup"></colgroup>
-<tr>
-<td id="reservation_corner_td"><input type="button" class="blue_button small_button" id="reservation_today_button" value="Today"></td>
-<th class="reservation_day_th">Monday<br/></th>
-<th class="reservation_day_th">Tuesday<br/></th>
-<th class="reservation_day_th">Wednesday<br/></th>
-<th class="reservation_day_th">Thursday<br/></th>
-<th class="reservation_day_th">Friday<br/></th>
-<th class="reservation_day_th">Saturday<br/></th>
-<th class="reservation_day_th">Sunday<br/></th>
-</tr>
+<div class="box_div" id="reservation_div">
 
-<!--foreach venue time -->
-<tr data-ng-repeat="time in venue.time_slots"><th class="reservation_time_th">{{time}}</th>
-	<!-- foreach day, $i=1:7 -->
-	<td data-ng-repeat="i in [1,2,3,4,5,6,7]"><div class="reservation_time_div"><div class="reservation_time_cell_div" id="div:' . $week . ':' . $i . ':' . $time . ':' .$venue_id .'" onclick="void(0)">{{venue.bookingchart[time][i]}}</div></div></td>
-</tr>
+<div class="box_top_div" id="reservation_top_div">
+	<div id="reservation_top_left_div"><a href="." id="previous_week_a">&lt; Previous week</a></div>
+	<div id="reservation_top_center_div">Reservations for week <span id="week_number_span">add week number here</span></div>
+	<div id="reservation_top_right_div"><a href="." id="next_week_a">Next week &gt;</a></div>
+</div>
 
-</table>	
+<div class="box_body_div">
+<div >
+
+	<table id="reservation_table"><colgroup span="1" id="reservation_time_colgroup"></colgroup><colgroup span="7" id="reservation_day_colgroup"></colgroup>
+		<tr>
+		<td id="reservation_corner_td"><input type="button" class="blue_button small_button" id="reservation_today_button" value="Today"></td>
+		<th class="reservation_day_th">Monday<br/></th>
+		<th class="reservation_day_th">Tuesday<br/></th>
+		<th class="reservation_day_th">Wednesday<br/></th>
+		<th class="reservation_day_th">Thursday<br/></th>
+		<th class="reservation_day_th">Friday<br/></th>
+		<th class="reservation_day_th">Saturday<br/></th>
+		<th class="reservation_day_th">Sunday<br/></th>
+		</tr>
+
+		<!--foreach venue time -->
+		<tr data-ng-repeat="time in venue.time_slots"><th class="reservation_time_th">{{time}}</th>
+			<!-- foreach day, $i=1:7 -->
+			<td data-ng-repeat="i in [1,2,3,4,5,6,7]"><div class="reservation_time_div"><div class="reservation_time_cell_div" id="div:' . $week . ':' . $i . ':' . $time . ':' .$venue_id .'" onclick="void(0)">{{venue.bookingchart[time][i]}}</div></div></td>
+		</tr>
+	</table>	
+</div>
+
+</div>
+</div>
