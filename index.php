@@ -1,7 +1,7 @@
 <?php
 
-	  $escaped_fragment = $_GET['_escaped_fragment_'];
-	  if(isset($escaped_fragment))
+	  $escaped_fragment = isset($_GET['_escaped_fragment_']) ? $_GET['_escaped_fragment_'] : "" ;
+	  if($escaped_fragment != "")
 	  {
 		 // handle bots
 		 $escaped_fragment_arr = explode('/' ,$escaped_fragment );

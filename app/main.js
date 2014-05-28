@@ -38,6 +38,10 @@ BookMeAGame.config(['$routeProvider','$locationProvider',
 		templateUrl : 'app/partials/playground.html',
 		controller : 'PlaygroundHomePage_Ctrl'
 	  }).
+	  when('/booking/:venue_url' , {
+		templateUrl : 'app/partials/reservations.html',
+		controller : 'ReservationController'
+	  }).
       otherwise({
         redirectTo: '/'
       });
