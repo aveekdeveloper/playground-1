@@ -90,4 +90,10 @@ $scope.venue = {
 						"11AM-12PM"
 					]
 			}
+			
+$scope.booktimeslot = function (time , day)
+{
+	alert("Clicked for "+time + day);
+};
+
 });

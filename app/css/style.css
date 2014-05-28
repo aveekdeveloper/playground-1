@@ -329,6 +329,8 @@ div.reservation_time_div
 	width: 100%;
 	border: 1px solid #4a8cf6;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	cursor: pointer;
+    cursor: hand;
 }
 
 div.reservation_time_cell_div

@@ -24,7 +24,11 @@
 		<!--foreach venue time -->
 		<tr data-ng-repeat="time in venue.time_slots"><th class="reservation_time_th">{{time}}</th>
 			<!-- foreach day, $i=1:7 -->
-			<td data-ng-repeat="i in [1,2,3,4,5,6,7]"><div class="reservation_time_div"><div class="reservation_time_cell_div" id="div:' . $week . ':' . $i . ':' . $time . ':' .$venue_id .'" onclick="void(0)">{{venue.bookingchart[time][i]}}</div></div></td>
+			<td data-ng-repeat="i in [1,2,3,4,5,6,7]">
+				<div class="reservation_time_div">
+					<div class="reservation_time_cell_div" data-ng-click = "booktimeslot(time , i)">{{venue.bookingchart[time][i]}}</div>
+				</div>
+			</td>
 		</tr>
 	</table>	
 </div>
