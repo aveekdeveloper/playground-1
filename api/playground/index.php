@@ -27,5 +27,20 @@ $app->get('/playground/:url' , function($url) use ($app){
 	}
 	
 	});
+	
+$app->get('/booking/:venue_id/:week' , function($venue_id , $week) use ($app){
+	//set the venue in the session variable by calling
+	list_venue_by_id($venue_id);	 
+	$result = prepare_reservation_chart_week($week);
+	
+	if(empty($result))
+	{
+		$app->response()->status(400);
+		$result=array();
+		$result['message'] = 'Your search returned no results. Please modify your query';
+	}
+	
+	echo json_encode($result);
+	});
 
 ?>
