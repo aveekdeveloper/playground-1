@@ -431,6 +431,7 @@ function highlight_day($day)
 	return $day;
 }
 
+//This function reads fron the session , not from database
 function read_reservation($venue_id, $week, $day, $time)
 {
 	$day_off = $_SESSION['venue']['Venue_day_off'];
@@ -515,8 +516,28 @@ function prepare_reservation_chart_week($week)
 	//Total running time : O(time_slots)
 }
 
-function read_reservation_from_database($venue_id, $week, $day, $time)
+//This function reads booking from the database
+function read_reservation_from_database($venue_id, $week , $day = '', $time = '')
 {
+	if($day == '' && $time == '')
+	{
+		$result = array();
+		
+		//If day and time have not been provided , search all reservations of that venue
+		$cursor = $reservations->find(
+						array(
+							'Reservation_venue_id' => $venue_id ,
+							'Reservation_week' => $week  ,
+						));
+						
+		foreach($cursor as $reservation)
+		{
+			array_push($result , $reservation);
+		}
+		
+		return $result;
+	}
+	
 	$day_off = $_SESSION['venue']['Venue_day_off'];
 	
 	//Check day offs

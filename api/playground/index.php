@@ -28,10 +28,9 @@ $app->get('/playground/:url' , function($url) use ($app){
 	
 	});
 	
-$app->get('/booking/:venue_id/:week' , function($venue_id , $week) use ($app){
-	//set the venue in the session variable by calling
-	list_venue_by_id($venue_id);	 
-	$result = prepare_reservation_chart_week($week);
+$app->get('/booking/:venue_id/:week' , function($venue_id , $week) use ($app){ 
+	
+	$result = read_reservation_from_database($venue_id , $week);
 	
 	if(empty($result))
 	{
