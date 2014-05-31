@@ -519,6 +519,8 @@ function prepare_reservation_chart_week($week)
 //This function reads booking from the database
 function read_reservation_from_database($venue_id, $week , $day = '', $time = '')
 {
+	global $reservations;
+	
 	if($day == '' && $time == '')
 	{
 		$result = array();
@@ -550,9 +552,6 @@ function read_reservation_from_database($venue_id, $week , $day = '', $time = ''
 	}
 	
 	//If booking allowed for that day , search if already booked
-	
-	
-	global $reservations;
 	
 	$count = $reservations->count(
 				array(
