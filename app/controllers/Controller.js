@@ -82,14 +82,18 @@ BookMeAGame.controller('SearchController', function ($scope , $routeParams, Sear
 BookMeAGame.controller('ReservationController', function ($scope , $routeParams , $location)
 {
 
+$scope.week = 19;
 $scope.venue = {
-					"name": "Playmania bellandur",
+					"name": "",
+					"id" : "66FootballClubBehalaFootballfield1",
 					"time_slots": [
 						"9AM-10PM",
 						"10AM-11PM",
 						"11AM-12PM"
 					]
 			}
+
+//Prepare booking chart for the week
 			
 $scope.booktimeslot = function (time , day)
 {
