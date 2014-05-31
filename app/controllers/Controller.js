@@ -90,14 +90,19 @@ $scope.venue = {
 						"9AM-10PM",
 						"10AM-11PM",
 						"11AM-12PM"
-					]
+					],
+					"booking": {
+						"9Am-10PM_1": "Booked"
+					}
 			}
 
-//Prepare booking chart for the week
+
 			
 $scope.booktimeslot = function (time , day)
 {
 	alert("Clicked for "+time + day);
 };
+
+
 
 });
