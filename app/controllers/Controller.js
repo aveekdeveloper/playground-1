@@ -92,7 +92,7 @@ $scope.venue = {
 						"11AM-12PM"
 					],
 					"booking": {
-						"9Am-10PM_1": "Booked"
+						"9AM-10PM": {"1" : "Booked"}
 					}
 			}
 
