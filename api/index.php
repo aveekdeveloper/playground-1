@@ -11,8 +11,8 @@ $app->response->headers->set('Content-Type', 'application/json');
 
 include_once('playground/index.php');
 
-$app->get('/',function(){
-	//check for excaped fragment
+$app->get('/',function() use ($app){
+	//check for escaped fragment
 	$query = $app->request()->get('_escaped_fragment_');
 	
 	$query = explode('/' , $query );
@@ -23,7 +23,7 @@ $app->get('/',function(){
 			$playground_location = (isset($query[1])) ? $query[1] : '' ;
 			$playground_game_type = (isset($query[2])) ? $query[2] : '' ;
 			
-			$result = list_playgrounds_by_sports_location($game_type,$location);
+			$result = list_playgrounds_by_sports_location($playground_game_type,$playground_location);
 			
 			foreach($result as $venue)
 			{
