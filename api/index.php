@@ -20,8 +20,8 @@ $app->get('/',function(){
 	switch($query[0])
 	{
 		case 'search' :
-			$playground_location = (isset($query[1])) $query[1]? : '' ;
-			$playground_game_type = (isset($query[2])) $query[2]? : '' ;
+			$playground_location = (isset($query[1])) ? $query[1] : '' ;
+			$playground_game_type = (isset($query[2])) ? $query[2] : '' ;
 			
 			$result = list_playgrounds_by_sports_location($game_type,$location);
 			
@@ -32,7 +32,7 @@ $app->get('/',function(){
 			
 			break;
 		case 'playground' :
-			$playground_url = (isset($query[1])) $query[1]? : '' ;
+			$playground_url = (isset($query[1])) ? $query[1] : '' ;
 			$result = get_playground_by_url($playground_url);
 			
 			if(!empty($result))
