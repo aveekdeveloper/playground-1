@@ -12,7 +12,37 @@ $app->response->headers->set('Content-Type', 'application/json');
 include_once('playground/index.php');
 
 $app->get('/',function(){
-	echo "Api home";
+	//check for excaped fragment
+	$query = $app->request()->get('_escaped_fragment_');
+	
+	$query = explode('/' , $query );
+	
+	switch($query[0])
+	{
+		case 'search' :
+			$playground_location = (isset($query[1])) $query[1]? : '' ;
+			$playground_game_type = (isset($query[2])) $query[2]? : '' ;
+			
+			$result = list_playgrounds_by_sports_location($game_type,$location);
+			
+			foreach($result as $venue)
+			{
+				echo render_playground($venue);
+			}
+			
+			break;
+		case 'playground' :
+			$playground_url = (isset($query[1])) $query[1]? : '' ;
+			$result = get_playground_by_url($playground_url);
+			
+			if(!empty($result))
+			{
+				echo render_playground($result);
+			}
+			break;
+		default:
+			$app->response()->status(400);
+	}
 });
 
 $app->get('/search',function() use ($app){
